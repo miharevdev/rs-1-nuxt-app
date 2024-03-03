@@ -26,6 +26,6 @@ WORKDIR /app
 COPY --from=builder /app  .
 
 ENV HOST 0.0.0.0
-EXPOSE 3000
+EXPOSE 80:81
 
-CMD [ "npm", "start" ]
+CMD ["nginx", "-g", "daemon off;"]
