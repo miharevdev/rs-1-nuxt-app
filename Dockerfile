@@ -1,21 +1,19 @@
-FROM node:8
+FROM node:18
 
-# Папка приложения
-ARG APP_DIR=app
-RUN mkdir -p ${APP_DIR}
-WORKDIR ${APP_DIR}
+# создание директории приложения
+WORKDIR /usr/src/app
 
-# Установка зависимостей
+# установка зависимостей
+# символ астериск ("*") используется для того чтобы по возможности
+# скопировать оба файла: package.json и package-lock.json
 COPY package*.json ./
-RUN npm install
-# Для использования в продакшне
-# RUN npm install --production
 
-# Копирование файлов проекта
+RUN npm install
+# Если вы создаете сборку для продакшн
+# RUN npm ci --omit=dev
+
+# копируем исходный код
 COPY . .
 
-# Уведомление о порте, который будет прослушивать работающее приложение
-EXPOSE 80:81
-
-# Запуск проекта
-CMD ["npm", "start"]
+EXPOSE 5000
+CMD [ "node", "server.js" ]
