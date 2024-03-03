@@ -10,7 +10,6 @@ app.get('/test', function (req, res) {
   res.send('Test successful')
 })
 
-
 export default {
   path: '/api',
   handler: app
