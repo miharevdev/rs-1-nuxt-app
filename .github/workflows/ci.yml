@@ -28,8 +28,8 @@ jobs:
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
       - name: Build Docker image
-        run: docker build . --file Dockerfile --tag miharevdev/vueapp:latest
+        run: docker build . --file Dockerfile --tag miharevdev/nuxtapp:latest
 
       - name: Push to Docker Hub
-        run: docker push miharevdev/vueapp:latest
+        run: docker push miharevdev/nuxtapp:latest
 
