@@ -28,4 +28,4 @@ COPY --from=builder /app  .
 ENV HOST 0.0.0.0
 EXPOSE 80:81
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "npm", "start" ]
