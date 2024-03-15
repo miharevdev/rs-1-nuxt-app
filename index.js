@@ -9,7 +9,7 @@ const userRouter = require("./routes/user.routes.js");
 const postRouter = require("./routes/post.routes.js");
 const authRouter = require("./routes/auth.routes.js")
 
-const port  = process.env.PORT || 5000;
+const port  = process.env.PORT || 5002;
 
 const app = express();
 
